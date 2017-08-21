@@ -1,0 +1,344 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "reset.css";
+@import "flexslider.css";
+@import "fontello.css";
+
+@mixin linx ($decor, $size, $line-h, $weight, $link, $hover, $active) {
+    text-decoration: $decor;
+    font-size: $size;
+    line-height: $line-h;
+    font-weight: $weight;
+    color: $link;
+    &:hover {
+      color: $hover;   
+    }
+    &:active {
+      color: $active;
+    }
+}
+
+$font-stack:    Helvetica, sans-serif;
+$font-top-section: 'Bebas', sans-serif;
+$font-color: #515151;
+$font-pink-color: #e07251;
+$dark-blue: #1f262d;
+$white: #ffffff;
+$black: #000000;
+
+@font-face {
+  font-family: 'Bebas';
+  src: url('../fonts/briefcase.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+   content:"";
+   box-sizing:border-box;
+}
+
+/*base*/
+
+html {
+  font-size: 100%;
+  line-height: 100%;
+}
+
+body {
+  font-family: $font-stack;
+  font-weight:normal;
+  font-size: 13px;
+  line-height: 18px;
+  color: $font-color;
+}
+
+.wrapper {
+  min-height: calc(100vh - 107px);
+}
+
+.container {
+  width:1000px;
+  margin:0 auto;
+  position:relative;
+}
+
+.row:after {
+    content:"";
+    clear: both;
+    display: block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.col-3 {
+  width: 30%;
+  float: left;
+  margin-right: 30px;
+}
+
+.col-6 {
+  width: 15%;
+  float: left;
+  margin-right:15px;
+}
+
+
+
+/*typografy*/
+
+a {
+  @include linx(none, 13px, 18px, 600, $black, $font-pink-color, $font-pink-color);
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ol li {
+  list-style-type: none;
+}
+
+h1 {
+  font-family: $font-top-section;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 65px;
+  color: $white;
+  top:70vh;
+  left:0px;
+  position:absolute;
+  z-index:3;
+  cursor:pointer;
+  transition: all .3s ease-out 0s;
+}
+
+h1:hover {
+  background: $font-pink-color;
+  transition: all .3s ease-out 0s;
+}
+
+h2 {
+  font-size: 23px;
+  line-height: 25px;
+  color: $dark-blue;
+  margin-bottom: 50px;
+  position:relative;
+  display:inline-block;
+}
+
+h2:after {
+  content:"";
+  height:1px;
+  background-color:#e5e5e5;
+  position:absolute;
+  width:100%;
+  left:0px;
+  bottom: -23px;
+}
+
+h3 {
+  font-size: 16px;
+  line-height: 24px;
+  color: $font-pink-color;
+  font-weight: 400;
+}
+
+.demo-icon:hover,
+.demo-icon:active {
+  text-shadow: 0px 0px 3px #ffffff;
+}
+
+/*header styles*/
+
+.header,
+.header-white {
+  height: 112px;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  padding-top: 98px;
+  transition: all .3s ease-out 0s;
+}
+
+.header-white {
+  background: rgba(255,255,255,.6);
+  padding-top:32px;
+}
+
+.header-white a{
+  color:$black;
+}
+
+.logo-link,
+.logo-black {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom:0px;
+}
+
+.logo-black {
+  top: 3px;
+}
+
+.nav__item {
+  color:$white;
+  text-transform:uppercase;
+  font-size:11px;
+  line-height: 14px;
+  margin-right:53px;
+}
+
+.nav__item:hover {
+  text-decoration: underline;
+}
+
+.nav__icon {
+  font-size:14px;
+}
+
+/*.menu-black {
+  color:$black;
+}*/
+
+/*top-section styles*/
+
+.top-section {
+  height: 100vh;
+  min-height: 665px;
+  position: relative;
+}
+
+.top-section__flexslider {
+  position:absolute;
+  height: 100vh;
+  top:0px;
+  left:0px;
+  width:100%;
+}
+
+.view-all-link {
+  color:$font-pink-color;
+  text-transform:uppercase;
+  font-size:11px;
+  line-height:13px;
+}
+
+.top-section__link {
+  position:absolute;
+  left: 135px;
+  top:93vh;
+  z-index:3;
+}
+
+.top-section__link_circle {
+  left:0px;
+}
+
+/*event-block*/
+
+.event-block {
+  text-align:center;
+  padding-top:80px;
+  padding-bottom:45px;
+}
+
+.event-block__img {
+  margin-bottom:10px;
+}
+
+.event-block__link {
+  display:inline-block;
+  margin-top:40px;
+}
+
+/*news-block*/
+
+.news-block {
+  background-color:#f2f2f2;
+  padding-top:53px;
+  padding-bottom:70px;
+}
+
+.news-block__data {
+  display:inline-block;
+  text-transform:uppercase;
+  width:25px;
+  margin-right:25px;
+  margin-top:8px;
+  font-size:18px;
+  line-height:10px;
+}
+
+.data-month {
+  font-size:10px;
+  line-height: 10px;
+}
+
+.news-block__text {
+  width:250px;
+}
+
+/*footer*/
+
+.footer {
+  padding: 45px 0px 44px 0px;
+  text-transform:uppercase;
+  color:$white;
+  font-size:10px;
+  background-color:#1f262d;
+  position:relative;
+}
+
+.footer__social-icon {
+  margin-left:27px;
+  font-size:18px;
+  float:right;
+  color:$white;
+}
+
+.footer__logo {
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top:-55px;
+}
+
+/*help styles*/
+  
+.no-margin {
+    margin: 0 0;
+}
+
+.flexslider .slides img {
+    /* height: auto; */
+    min-height: 100%;
+    width: auto;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
